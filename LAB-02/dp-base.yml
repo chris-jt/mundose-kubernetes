@@ -8,7 +8,7 @@ spec:
   selector:   #permite seleccionar un conjunto de objetos que cumplan las condicione
     matchLabels:
       app: web
-  replicas: 5 # indica al controlador que ejecute 5 pods
+  replicas: 3 # indica al controlador que ejecute 3 pods
   template:   # Plantilla que define los containers
     metadata:
       labels:
