@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: np-svc
   labels:
-     app: ng-persistente
+     app: r-ng-persistente
 spec:
   type: NodePort
   ports:
@@ -11,4 +11,4 @@ spec:
     #nodePort: 30080
     protocol: TCP
   selector:
-     app: ng-persistente
+     app: r-ng-persistente
