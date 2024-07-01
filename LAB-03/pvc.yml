@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: persistent-volume-claim
+  name: recetas-pvc
 spec:
   storageClassName: manual
   accessModes:
