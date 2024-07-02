@@ -1,7 +1,7 @@
-apiVersion: v2
+apiVersion: apps/v1
 kind: Deployment #Pod
 metadata:
-  name: recetas-nginx-persistente
+  name: recetas-nx-persistente
   labels:
     estado: A
 spec:
