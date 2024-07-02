@@ -1,21 +1,30 @@
-apiVersion: v1
-kind: Pod
+apiVersion: v2
+kind: Deployment #Pod
 metadata:
   name: recetas-nginx-persistente
   labels:
-    app: r-ng-persistente
+    estado: A
 spec:
-  volumes:
-    - name: recetas-nx-storage
-      persistentVolumeClaim:
-        claimName: recetas-pvc
-  containers:
-    - name: recetas-container
-      image: nginx
-      ports:
-        - containerPort: 80
-          name: "http-server"
-      volumeMounts:
-        - mountPath: "/usr/share/nginx/html"
-          name: recetas-nx-storage
+  selector:   #permite seleccionar un conjunto de objetos que cumplan las condicione
+    matchLabels:
+      app: r-ng-persistente
+  replicas: 3 # indica al controlador que ejecute 3 pods
+  template:   # Plantilla que define los containers
+    metadata:
+      labels:
+        app: r-ng-persistente
+  spec:
+    volumes:
+      - name: recetas-nx-storage
+        persistentVolumeClaim:
+          claimName: recetas-pvc
+    containers:
+      - name: recetas-container
+        image: nginx
+        ports:
+          - containerPort: 80
+            name: "http-server"
+        volumeMounts:
+          - mountPath: "/usr/share/nginx/html"
+            name: recetas-nx-storage
 
