@@ -13,18 +13,18 @@ spec:
     metadata:
       labels:
         app: r-ng-persistente
-  spec:
-    volumes:
-      - name: recetas-nx-storage
-        persistentVolumeClaim:
-          claimName: recetas-pvc
-    containers:
-      - name: recetas-container
-        image: nginx
-        ports:
-          - containerPort: 80
-            name: "http-server"
-        volumeMounts:
-          - mountPath: "/usr/share/nginx/html"
-            name: recetas-nx-storage
+    spec:
+      volumes:
+        - name: recetas-nx-storage
+          persistentVolumeClaim:
+            claimName: recetas-pvc
+      containers:
+        - name: recetas-container
+          image: nginx
+          ports:
+            - containerPort: 80
+              name: "http-server"
+          volumeMounts:
+            - mountPath: "/usr/share/nginx/html"
+              name: recetas-nx-storage
 
